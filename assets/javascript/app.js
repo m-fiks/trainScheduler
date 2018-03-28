@@ -61,7 +61,16 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
 
     //obtain unix value for storedFirstTime
     console.log(moment(storedFirstTime, format).unix());
-    console.log(moment("15:30", format).unix());
-    //console.log(moment.unix(today));
-    //console.log(moment(today).format("DD/MM/YY/hh:mm"));
+    let trainUnix = moment(moment(storedFirstTime, format).unix());
+    console.log(trainUnix)
+    //verification that unix value is correct
+    //console.log(moment("15:30", format).unix());
+
+    console.log(moment().unix())
+    let nowUnix = moment(moment().unix());
+    
+    //difference between NOW and firsttraintime
+    let diff = trainUnix.diff(nowUnix);
+    console.log(diff);
+
 });
