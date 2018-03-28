@@ -39,7 +39,7 @@ $('button').on("click", function () {
     $('#frequencyarea').val("");
 });
 
-database.ref().orderByChild("dateAdded").limitToLast(3).on("child_added", function(snapshot){
+database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot){
     let sv = snapshot.val();
     console.log(sv);
    
@@ -49,9 +49,19 @@ database.ref().orderByChild("dateAdded").limitToLast(3).on("child_added", functi
     console.log(storedDest);
     let storedFreq = sv.trainFrequency
     console.log(storedFreq);
-
     $('#addingName').append(`<tr><td> ${storedName} </td></tr>`);
     $('#addingDest').append(`<tr><td> ${storedDest} </td></tr>`);
     $('#addingFreq').append(`<tr><td> ${storedFreq} </td></tr>`);
 
+    let storedFirstTime = sv.trainFirstTime;
+    console.log(storedFirstTime);
+
+    //getting difference of times & other moment business
+    let format = "HH:mm";
+
+    //obtain unix value for storedFirstTime
+    console.log(moment(storedFirstTime, format).unix());
+    console.log(moment("15:30", format).unix());
+    //console.log(moment.unix(today));
+    //console.log(moment(today).format("DD/MM/YY/hh:mm"));
 });
