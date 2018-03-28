@@ -38,3 +38,20 @@ $('button').on("click", function () {
     $('#firsttimearea').val("");
     $('#frequencyarea').val("");
 });
+
+database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot){
+    let sv = snapshot.val();
+    console.log(sv);
+   
+    let storedName= sv.trainName;
+    console.log(storedName)
+    let storedDest =sv.trainDestination;
+    console.log(storedDest);
+    let storedFreq = sv.trainFrequency
+    console.log(storedFreq);
+
+    $('#addingName').append(`<tr><td> ${storedName} </td></tr>`);
+    $('#addingDest').append(`<tr><td> ${storedDest} </td></tr>`);
+    $('#addingFreq').append(`<tr><td> ${storedFreq} </td></tr>`);
+
+});
