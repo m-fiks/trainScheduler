@@ -44,11 +44,11 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
     console.log(sv);
    
     let storedName= sv.trainName;
-    console.log(storedName)
+    // console.log(storedName)
     let storedDest =sv.trainDestination;
-    console.log(storedDest);
+    // console.log(storedDest);
     let storedFreq = sv.trainFrequency
-    console.log(storedFreq);
+    // console.log(storedFreq);
     $('#addingName').append(`<tr><td> ${storedName} </td></tr>`);
     $('#addingDest').append(`<tr><td> ${storedDest} </td></tr>`);
     $('#addingFreq').append(`<tr><td> ${storedFreq} </td></tr>`);
@@ -59,18 +59,41 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
     //getting difference of times & other moment business
     let format = "HH:mm";
 
+    let freq = parseInt(storedFreq);
+    console.log(freq);
     //obtain unix value for storedFirstTime
-    console.log(moment(storedFirstTime, format).unix());
-    let trainUnix = moment(moment(storedFirstTime, format).unix());
-    console.log(trainUnix)
+    // console.log(moment(storedFirstTime, format).unix());
+    let firstUnix = moment(storedFirstTime, format).unix();
+    console.log(firstUnix)
     //verification that unix value is correct
-    //console.log(moment("15:30", format).unix());
+    //console.log(moment("06:00", format).unix());
 
-    console.log(moment().unix())
-    let nowUnix = moment(moment().unix());
-    
+    //use this to add to times 
+    // let currentDay = moment()._d;
+    // console.log(moment(currentDay).format("MM/DD/YY"));
+
+    //console.log(moment().unix());
+    let nowUnix = moment().unix();
+    console.log(nowUnix);
+
     //difference between NOW and firsttraintime
-    let diff = trainUnix.diff(nowUnix);
-    console.log(diff);
+    let difference = moment(nowUnix).diff(moment(firstUnix));
+    // //divide by 60 to get to minutes?
+    let diffMinutes = difference/60;
+    console.log('Difference in time: ' + diffMinutes + ' minutes');
+    
+
+    //minutes until next train
+    let remainder =  diffMinutes % freq;
+    console.log(remainder);
+
+    let minsAway = freq - remainder;
+    console.log(minsAway);
+
+    // let stopTimes = firstUnix + 
+    //if next train time > current time {
+        //display the train value and how much
+        //time until that time value ^^
+    //}
 
 });
