@@ -38,7 +38,6 @@ $('button').on("click", function () {
     $('#firsttimearea').val("");
     $('#frequencyarea').val("");
 });
-
 database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot){
     let sv = snapshot.val();
     console.log(sv);
@@ -60,21 +59,15 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
     let format = "HH:mm";
 
     let freq = parseInt(storedFreq);
-    console.log(freq);
+    //console.log(freq);
     //obtain unix value for storedFirstTime
     // console.log(moment(storedFirstTime, format).unix());
     let firstUnix = moment(storedFirstTime, format).unix();
-    console.log(firstUnix)
-    //verification that unix value is correct
-    //console.log(moment("06:00", format).unix());
-
-    //use this to add to times 
-    // let currentDay = moment()._d;
-    // console.log(moment(currentDay).format("MM/DD/YY"));
+    //console.log(firstUnix)
 
     //console.log(moment().unix());
     let nowUnix = moment().unix();
-    console.log(nowUnix);
+    //console.log(nowUnix);
 
     //difference between NOW and firsttraintime
     let difference = moment(nowUnix).diff(moment(firstUnix));
@@ -85,15 +78,16 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
 
     //minutes until next train
     let remainder =  diffMinutes % freq;
-    console.log(remainder);
-
+    //console.log(remainder);
     let minsAway = freq - remainder;
     console.log(minsAway);
+    console.log(parseInt(minsAway))
 
-    // let stopTimes = firstUnix + 
-    //if next train time > current time {
-        //display the train value and how much
-        //time until that time value ^^
-    //}
+    //calculate next arrival
+    let nextArrival = moment().add(minsAway, 'm');
 
+    //append to DOM
+    $('#addingMinutesAway').append(Math.ceil(minsAway));
+    $('#addingNext').append(moment(nextArrival).format("HH:mm"));
+    
 });
