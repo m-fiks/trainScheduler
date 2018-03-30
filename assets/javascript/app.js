@@ -38,6 +38,7 @@ $('button').on("click", function () {
     $('#firsttimearea').val("");
     $('#frequencyarea').val("");
 });
+
 database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", function(snapshot){
     let sv = snapshot.val();
     console.log(sv);
@@ -48,46 +49,41 @@ database.ref().orderByChild("dateAdded").limitToLast(1).on("child_added", functi
     // console.log(storedDest);
     let storedFreq = sv.trainFrequency
     // console.log(storedFreq);
+    let storedFirstTime = sv.trainFirstTime;
+    //console.log(storedFirstTime);
     $('#addingName').append(`<tr><td> ${storedName} </td></tr>`);
     $('#addingDest').append(`<tr><td> ${storedDest} </td></tr>`);
     $('#addingFreq').append(`<tr><td> ${storedFreq} </td></tr>`);
 
-    let storedFirstTime = sv.trainFirstTime;
-    console.log(storedFirstTime);
-
     //getting difference of times & other moment business
     let format = "HH:mm";
 
-    let freq = parseInt(storedFreq);
-    //console.log(freq);
-    //obtain unix value for storedFirstTime
-    // console.log(moment(storedFirstTime, format).unix());
+    //obtain unix value for storedFirstTime and current time
     let firstUnix = moment(storedFirstTime, format).unix();
     //console.log(firstUnix)
 
-    //console.log(moment().unix());
     let nowUnix = moment().unix();
     //console.log(nowUnix);
 
     //difference between NOW and firsttraintime
     let difference = moment(nowUnix).diff(moment(firstUnix));
+
     // //divide by 60 to get to minutes?
     let diffMinutes = difference/60;
-    console.log('Difference in time: ' + diffMinutes + ' minutes');
+    //console.log('Difference in time: ' + diffMinutes + ' minutes');
     
 
     //minutes until next train
-    let remainder =  diffMinutes % freq;
+    let remainder =  diffMinutes % storedFreq;
     //console.log(remainder);
-    let minsAway = freq - remainder;
-    console.log(minsAway);
-    console.log(parseInt(minsAway))
+    let minsAway = storedFreq - remainder;
+    // console.log(minsAway);
 
     //calculate next arrival
     let nextArrival = moment().add(minsAway, 'm');
-
+    //console.log(nextArrival)
     //append to DOM
-    $('#addingMinutesAway').append(Math.ceil(minsAway));
-    $('#addingNext').append(moment(nextArrival).format("HH:mm"));
-    
+    $('#addingMinutesAway').append(`<tr><td> ${Math.ceil(minsAway)} </td></tr>`);
+    $('#addingNext').append(`<tr><td> ${moment(nextArrival).format("HH:mm")} </td></tr>`);
+
 });
