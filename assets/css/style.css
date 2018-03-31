@@ -2,11 +2,15 @@
 font-family: 'Alegreya Sans SC', sans-serif;
 font-family: 'Amatic SC', cursive;
 font-family: 'Faster One', cursive;
-font-family: 'Sigmar One', cursive;*/
+font-family: 'Sigmar One', cursive;
+font-family: 'Arvo', serif;*/
 
 body {
-    background-image: url('../images/curve.jpg');
-    background-size: contain;
+    background-image: url('../images/blur.jpg');
+    background-size: cover;
+    font-family: 'Inconsolata', monospace;
+    font-weight: bold;
+    margin-bottom:50px;
 };
 
 #head {
@@ -17,21 +21,22 @@ body {
 h1{
     color:white;
     text-align:center;
-    font-family: 'Julius Sans One', sans-serif;
-    font-weight: bold;
+    font-family: 'Faster One', cursive;
+    font-size:50px;
 }
 
-.table, form{
+.table, form, .rules {
     border:solid 2px rgba(75, 182, 182, 0.904);
-    background-color:rgba(206, 183, 165, 0.712);
+    background-color:rgba(206, 202, 179, 0.712);
 }
 
 h3{
     color:whitesmoke;
     border:solid 2px rgba(75, 182, 182, 0.904);
-    background-color:rgba(206, 183, 165, 0.712);
+    background-color:rgba(206, 202, 179, 0.712);
     width:290px;
     text-align:center;
     font-family: 'Julius Sans One', sans-serif;
     font-weight: bold;
-}
+    margin-top:15px;
+};

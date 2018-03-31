@@ -8,7 +8,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Faster+One|Sigmar+One|Julius+Sans+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Faster+One|Sigmar+One|Julius+Sans+One|Arvo|Inconsolata" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -18,9 +18,9 @@
 
 <div class="row">
 
-<div class="col-xs-12 col-md-1"></div>
+<div class="col-xs-12 col-md-2"></div>
 
-<div class="col-xs-12 col-md-7">
+<div class="col-xs-12 col-md-8">
         <table class="table table-hover" id='train-table'>
             <h3>Current Trains</h3>
                 <thead>
@@ -40,9 +40,17 @@
             </table>
     </div>
 
+<div class="col-xs-12 col-md-2"></div>
+
+</div>
+
+<div class="row">
+
+<div class="col-xs-12 col-md-2"></div>
+
 <div class="col-xs-12 col-md-4">
         <h3>Add Train</h3>
-        <form>
+        <form class="adder">
             <div class="form-group-1">
                 <label for="name">Train Name</label>
                 <input type="text" class="form-control" id="namearea">
@@ -60,9 +68,30 @@
                 <input type="text" class="form-control" id="frequencyarea">
             </div>
             <br>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" style="background-color:rgba(75, 182, 182, 0.904); border:none; margin:10px 100px">Submit</button>
         </form>
 </div>
+
+
+<div class="col-xs-12 col-md-4">
+        <h3>Public Transportation Etiquette</h3>
+            <div class="rules">
+                <ol>
+                    <li>Let inside passengers exit first</li>
+                    <li>Give up your seat to anyone who needs it more than you</li>
+                    <li>Pay attention</li>
+                    <li>One seat per person</li>
+                    <li>Refrain loud conversations</li>
+                    <li>Cover your mouth when you sneeze/cough</li>
+                    <li>Pay your fare</li>
+                    <li>No smoking</li>
+                    <li>No littering</li>
+                    <li>No sleeping</li>
+                </ol>
+            </div>
+</div>
+
+<div class="col-xs-12 col-md-2"></div>
         
 </div>
   
