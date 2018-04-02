@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train time!</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Faster+One|Sigmar+One|Julius+Sans+One|Arvo|Inconsolata" rel="stylesheet">
+</head>
+<body>
+<header>
+        <h1 id="head">Dude, where's my train???</h1>
+</header>
+
+
+<div class="row">
+
+<div class="col-xs-12 col-md-2"></div>
+
+<div class="col-xs-12 col-md-8">
+        <table class="table table-hover" id='train-table'>
+            <h3>Current Trains</h3>
+                <thead>
+                    <th>Train Name</th>
+                    <th>Destination</th>
+                    <th>Frequency (min)</th>
+                    <th>Next Arrival</th>
+                    <th>Minutes Away</th>
+                </thead>
+                <tbody>
+                    <td id="addingName"></td>
+                    <td id="addingDest"></td>
+                    <td id="addingFreq"></td>
+                    <td id="addingNext"></td>
+                    <td id="addingMinutesAway"></td>
+                </tbody>
+            </table>
+    </div>
+
+<div class="col-xs-12 col-md-2"></div>
+
+</div>
+
+<div class="row">
+
+<div class="col-xs-12 col-md-2"></div>
+
+<div class="col-xs-12 col-md-4">
+        <h3>Add Train</h3>
+        <form class="adder">
+            <div class="form-group-1">
+                <label for="name">Train Name</label>
+                <input type="text" class="form-control" id="namearea">
+            </div>
+            <div class="form-group-2">
+                <label for="role">Destination</label>
+                <input type="text" class="form-control" id="destinationarea">
+            </div>
+            <div class="form-group-3">
+                <label for="start-date">First Train Time (HH:mm - military time)</label>
+                <input type="text" class="form-control" id="firsttimearea">
+            </div>
+            <div class="form-group-4">
+                <label for="monthly">Frequency (min)</label>
+                <input type="text" class="form-control" id="frequencyarea">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" style="background-color:rgba(75, 182, 182, 0.904); border:none; margin:10px 100px">Submit</button>
+        </form>
+</div>
+
+
+<div class="col-xs-12 col-md-4">
+        <h3>Public Transportation Etiquette</h3>
+            <div class="rules">
+                <ol>
+                    <li>Let inside passengers exit first</li>
+                    <li>Give up your seat to anyone who needs it more than you</li>
+                    <li>Pay attention</li>
+                    <li>One seat per person</li>
+                    <li>Refrain loud conversations</li>
+                    <li>Cover your mouth when you sneeze/cough</li>
+                    <li>Pay your fare</li>
+                    <li>No smoking</li>
+                    <li>No littering</li>
+                    <li>No sleeping</li>
+                </ol>
+            </div>
+</div>
+
+<div class="col-xs-12 col-md-2"></div>
+        
+</div>
+  
+    
+
+    
+
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+<script src="./assets/javascript/app.js"></script>
+
+</body>
+</html>
